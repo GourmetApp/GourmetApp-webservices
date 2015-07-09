@@ -116,10 +116,23 @@ function displayError($errorNumber) {
 	return $json;
 }
 
+$passGourmet;
+$userGourmet;
+
 /* BODY */
-//echo "user " . $_POST['user'] . "<br>";
-//echo "pass " . $_POST['pass'] . "<br>";
-$jsonResponse = (isset($_POST['user']) && isset($_POST['pass'])) ? displayResponse($_POST['user'], $_POST['pass']) : displayError(1);
+switch ($_SERVER['REQUEST_METHOD']) {
+	case 'GET':
+		$userGourmet = $_GET['user'];
+		$passGourmet = $_GET['pass'];
+		break;
+	case 'POST':
+		$userGourmet = $_POST['user'];
+		$passGourmet = $_POST['pass'];
+	default:
+		break;
+}
+
+$jsonResponse = (isset($userGourmet) && isset($passGourmet)) ? displayResponse($userGourmet, $passGourmet) : displayError(1);
 header('Content-type: application/json');
 echo json_encode($jsonResponse);
 
