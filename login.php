@@ -1,7 +1,6 @@
 <?php
 
 include 'datamanager.php';
-include 'htmlhelper.php';
 include 'response.php';
 
 $passGourmet;
@@ -20,6 +19,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
 		break;
 }
 
-$jsonResponse = (isset($userGourmet) && isset($passGourmet)) ? displayResponse($userGourmet, $passGourmet) : displayError(1);
+$jsonResponse = (isset($userGourmet) && isset($passGourmet)) ? displayResponse(getHTMLCurlRequest($userGourmet, $passGourmet)) : displayError(1);
 header('Content-type: application/json');
 echo json_encode($jsonResponse);

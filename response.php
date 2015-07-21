@@ -1,7 +1,7 @@
 <?php
+include('htmlhelper.php');
 
-function displayResponse($userGourmet, $passGourmet) {
-	$html = getHTMLCurlRequest($userGourmet, $passGourmet);
+function displayResponse($html) {
 	if ($html) {
 		if (getType(getCurrentBalance($html)) === "string") {
 			if (getCurrentBalance($html) !== 0) {
