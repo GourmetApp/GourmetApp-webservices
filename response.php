@@ -35,19 +35,19 @@ function displayError($errorNumber) {
 	switch ($errorNumber) {
     case 1:
         $errorCode = 1;
-        $errorMessage = "User or password not found";
+        $errorMessage = "El usuario o la contraseña no existe";
         break;
     case 2:
     	$errorCode = 2;
-        $errorMessage = "User or password incorrect";
+        $errorMessage = "Usuario o contraseña incorrectos";
         break; 
     case 3:
         $errorCode = 3;
-        $errorMessage = "The server not response";
+        $errorMessage = "El servidor no responde";
         break;
     default:
         $errorCode = $errorNumber;
-        $errorMessage = "Unknown code " . $errorNumber;  
+        $errorMessage = "Error con código " . $errorNumber;
         break;
 	}
 
