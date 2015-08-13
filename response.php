@@ -45,6 +45,10 @@ function displayError($errorNumber) {
         $errorCode = 3;
         $errorMessage = "El servidor no responde";
         break;
+    case 4:
+        $errorCode = 4;
+        $errorMessage = "El servicio no está operativo. Actualiza la aplicación";
+        break;
     default:
         $errorCode = $errorNumber;
         $errorMessage = "Error con código " . $errorNumber;
